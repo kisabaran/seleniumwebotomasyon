@@ -19,25 +19,25 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import javax.swing.*;
 import java.util.concurrent.TimeUnit;
 
-public class SearchTest {
-    /**
-     * Rigorous Test :-)
-     */
-    WebDriver driver;
-    WebDriverWait wait;
-
-    @Before
-    public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "properties/driver/chromedriver.exe");
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("start-maximized");
-
-        driver = new ChromeDriver(options);
-        wait = new WebDriverWait(driver, 60);//60 saniye boyunca 1 er sabiye aralıklarla elementin gelip gelmediğini kontrol et
-        driver.navigate().to("https://www.hepsiburada.com/");
-
-
-    }
+//public class SearchTest {
+//    /**
+//     * Rigorous Test :-)
+//     */
+//    WebDriver driver;
+//    WebDriverWait wait;
+//
+//    @Before
+//    public void setUp() {
+//        System.setProperty("webdriver.chrome.driver", "properties/driver/chromedriver.exe");
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("start-maximized");
+//
+//        driver = new ChromeDriver(options);
+//        wait = new WebDriverWait(driver, 60);//60 saniye boyunca 1 er sabiye aralıklarla elementin gelip gelmediğini kontrol et
+//        driver.navigate().to("https://www.hepsiburada.com/");
+//
+//
+//    }
 //
 //    @Test
 //    public void googleSearchTest() throws InterruptedException {
@@ -86,56 +86,34 @@ public class SearchTest {
 //
 //    }
 
-    @Test
-  public void hepsiBuradaLoginSearchTest() throws InterruptedException {
-        hoverElement(By.id("myAccount"));
-        clickElement(By.id("login"));
-        clickElement(By.className("controls"));
-        sendKeys(By.id("email"), "barankisa.04@gmail.com");
-        sendKeys(By.id("password"), "Baran.908");
-        clickElement(By.className("form-actions"));
+//    @Test
+//  public void hepsiBuradaLoginSearchTest() throws InterruptedException {
+//        hoverElement(By.id("myAccount"));
+//        clickElement(By.id("login"));
+//        clickElement(By.className("controls"));
+//        sendKeys(By.id("email"), "barankisa.04@gmail.com");
+//        sendKeys(By.id("password"), "Baran.908");
+//        clickElement(By.className("form-actions"));
+//
+//
+//        String name=getText(By.className("user-name"));
+//        System.out.println("///////////"+name);
+//        Assert.assertEquals("Baran Kısa",name);
+//
+////        Assert.assertFalse("BELİRTİLEN ELEMENT GÖRÜNTÜLENDİ",findElement(By.id("myAccount")).isDisplayed());
+////        try{
+////            findElement(By.id("myAccount")).isDisplayed();
+////        }catch (Exception ex){
+////            Assert.fail("element Görüntülenemedi");
+////        }
+
+//    }
+//
+//    @After
+//    public void after() {
+//    driver.quit();
+//    }
 
 
-        String name=getText(By.className("user-name"));
-        System.out.println("///////////"+name);
-        Assert.assertEquals("Baran Kısa",name);
 
-
-
-
-    }
-
-    @After
-    public void after() {
-    driver.quit();
-    }
-
-
-    public WebElement findElement(By by) {
-        return driver.findElement(by);
-    }
-
-    public void sendKeys(By by, String text) {
-        findElement(by).sendKeys(text);
-    }
-
-    public void clickElement(By by) {
-        wait.until(ExpectedConditions.elementToBeClickable(by));// excepted conditions elementin var olamasını bekliyor
-        findElement(by).click();
-    }
-
-    public void selectByVisibleText(By by, String text) {
-        Select select = new Select(findElement(by));
-        select.selectByVisibleText(text);
-    }
-    public void hoverElement(By by){
-        Actions action=new Actions(driver);
-        action.moveToElement(findElement(by)).build().perform();
-
-
-    }
-    public String getText(By by){
-        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
-        return findElement(by).getText();
-    }
-}
+//}
